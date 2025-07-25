@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="de" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Professional Stock Investment Education Platform</title>
+    <title>Aktieninvestition Bildungsplattform Deutschland</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,7 +21,8 @@
                         'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float-gentle': 'float-gentle 3s ease-in-out infinite',
                         'gradient-shift': 'gradient-shift 4s ease-in-out infinite',
-                        'scale-bounce': 'scale-bounce 0.6s ease-in-out'
+                        'scale-bounce': 'scale-bounce 0.6s ease-in-out',
+                        'notification-pulse': 'notification-pulse 2s ease-in-out infinite'
                     },
                     keyframes: {
                         'pulse-glow': {
@@ -46,6 +47,16 @@
                             '0%': { transform: 'scale(1)' },
                             '50%': { transform: 'scale(1.1)' },
                             '100%': { transform: 'scale(1)' }
+                        },
+                        'notification-pulse': {
+                            '0%, 100%': { 
+                                transform: 'scale(1)',
+                                opacity: '1'
+                            },
+                            '50%': { 
+                                transform: 'scale(1.2)',
+                                opacity: '0.8'
+                            }
                         }
                     }
                 }
@@ -113,9 +124,14 @@
             box-shadow: 0 12px 28px rgba(5, 150, 105, 0.4);
         }
         
-        .floating-whatsapp-button {
+        .whatsapp-floating {
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+        }
+        
+        .bottom-cta-button {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
         }
         
         .risk-disclosure-section {
@@ -127,6 +143,23 @@
             background: linear-gradient(145deg, #7f1d1d 0%, #991b1b 100%);
             border-color: #dc2626;
         }
+        
+        .notification-badge {
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            animation: notification-pulse 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="bg-financial-light dark:bg-financial-dark text-gray-900 dark:text-gray-100 font-sans overflow-x-hidden">
@@ -136,14 +169,14 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 bg-gradient-to-br from-financial-primary to-financial-secondary rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">SI</span>
+                        <span class="text-white font-bold text-lg">AI</span>
                     </div>
-                    <span class="text-xl font-bold gradient-text-animated">Stock Investment Education</span>
+                    <span class="text-xl font-bold gradient-text-animated">Aktieninvestition Deutschland</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-700 dark:text-gray-300 hover:text-financial-primary transition-colors">Features</a>
-                    <a href="#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-financial-primary transition-colors">Success Stories</a>
-                    <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-financial-primary transition-colors">Education</a>
+                    <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-financial-primary transition-colors">Services</a>
+                    <a href="#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-financial-primary transition-colors">Erfahrungen</a>
+                    <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-financial-primary transition-colors">Bildung</a>
                 </div>
             </div>
         </div>
@@ -157,47 +190,33 @@
         <div class="relative z-10 max-w-6xl mx-auto px-4 text-center">
             <div class="animate-float-gentle">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
-                    Enhance Your <span class="text-financial-gold">Investment Skills</span><br>
-                    Monthly Progress
+                    Professionelle <span class="text-financial-gold">Aktienanalyse</span><br>
+                    & Bildungsberatung
                 </h1>
                 <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-                    Navigate market volatility with confidence! Join our team of experienced professional analysts providing free online education and support services for stock market investors.
+                    Lernen Sie von erfahrenen Marktanalysten! Unser Team bietet kostenlose Online-Bildungsdienstleistungen für Aktieninvestoren. Wir unterstützen Sie dabei, Marktvolatilität mit Vertrauen zu bewältigen.
                 </p>
             </div>
             
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-                <button onclick="h2()" class="cta-button-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:animate-scale-bounce transition-all duration-300">
-                    Get Daily Market Analysis
-                </button>
-                <button onclick="h2()" class="bg-white/20 text-white border-2 border-white/30 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all duration-300">
-                    Learn More
+                <button onclick="d2()" class="cta-button-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:animate-scale-bounce transition-all duration-300">
+                    Sofort WhatsApp hinzufügen
                 </button>
             </div>
             
-            <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-16">
-                <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/30 shadow-lg">
-                    <div class="text-2xl sm:text-3xl font-bold text-financial-primary mb-1 sm:mb-2">8,000+</div>
-                    <div class="text-xs sm:text-base text-gray-700 font-medium">Active Community Members</div>
-                </div>
-                <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/30 shadow-lg">
-                    <div class="text-2xl sm:text-3xl font-bold text-financial-secondary mb-1 sm:mb-2">15+ Years</div>
-                    <div class="text-xs sm:text-base text-gray-700 font-medium">Professional Experience</div>
-                </div>
-                <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/30 shadow-lg">
-                    <div class="text-2xl sm:text-3xl font-bold text-financial-accent mb-1 sm:mb-2">24/7</div>
-                    <div class="text-xs sm:text-base text-gray-700 font-medium">Market Support</div>
-                </div>
+            <div class="text-center">
+                <img src="img/1.png" alt="Professioneller Finanzberater" class="mx-auto rounded-2xl shadow-2xl max-w-2xl w-full mb-8">
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="features" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900">
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-6">Why Choose Our Platform?</h2>
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-6">Für intelligentere und schnellere Geschäfte</h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                    Experience professional guidance with zero barriers to learning, designed for both beginners and experienced investors.
+                    Wir zeigen jedem Investor, wie er technische Herausforderungen überwinden und KI nutzen kann, um die Leistung zu verbessern!
                 </p>
             </div>
             
@@ -205,21 +224,21 @@
                 <div class="feature-card-enhanced rounded-2xl p-8 text-center">
                     <div class="w-16 h-16 bg-gradient-to-br from-financial-primary to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Professional Guidance</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Zero-barrier learning approach for all skill levels with easy-to-understand market trends and investment strategies.</p>
+                    <h3 class="text-xl font-bold mb-4">Investitionstrendanalyse</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Diagrammkommentare bieten Investoren profitable Investitionstipps, die sogar Anfänger lernen können!</p>
                 </div>
                 
                 <div class="feature-card-enhanced rounded-2xl p-8 text-center">
                     <div class="w-16 h-16 bg-gradient-to-br from-financial-secondary to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Real-Time Analysis</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Daily market trend updates and individual stock analysis to help you identify optimal investment opportunities.</p>
+                    <h3 class="text-xl font-bold mb-4">Echtzeit-Warnungen</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Professionelle Analysten mit umfangreicher Erfahrung, kombiniert mit KI, unterstützen den Handel.</p>
                 </div>
                 
                 <div class="feature-card-enhanced rounded-2xl p-8 text-center">
@@ -228,8 +247,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Risk Management</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Professional systems and personalized advice to help minimize potential investment risks.</p>
+                    <h3 class="text-xl font-bold mb-4">Risikomanagement</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Durch die Nutzung unserer professionellen Systeme können Sie potenzielle Verluste reduzieren.</p>
                 </div>
                 
                 <div class="feature-card-enhanced rounded-2xl p-8 text-center">
@@ -238,35 +257,41 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Community Exchange</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Private groups providing learning and communication platforms to grow together with fellow investors.</p>
+                    <h3 class="text-xl font-bold mb-4">Handelspsychologie</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Durch klare Marktsignale können emotionale Schwankungen eliminiert werden.</p>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <img src="img/1.jpg" alt="Professional Investment Team" class="mx-auto rounded-2xl shadow-2xl max-w-2xl w-full mb-8">
-                <button onclick="h2()" class="cta-button-secondary text-white px-10 py-4 rounded-full text-lg font-semibold">
-                    Connect with Experts
-                </button>
+                <div class="bg-gradient-to-r from-financial-primary/10 to-financial-secondary/10 rounded-2xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold mb-4">Erstellen Sie Ihr eigenes Dividenden-Portfolio. Kostenlos.</h3>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        Täglich teilen wir ein bis drei Erfolgsgeschichten! Unser Zielprotokoll gilt für kostenlose und exklusive Premium-Analysten.
+                    </p>
+                    <button onclick="d2()" class="cta-button-secondary text-white px-10 py-4 rounded-full text-lg font-semibold">
+                        Sofort WhatsApp hinzufügen
+                    </button>
+                </div>
+                <img src="img/1.jpg" alt="Professionelles Investment Team" class="mx-auto rounded-2xl shadow-2xl max-w-2xl w-full">
             </div>
         </div>
     </section>
 
-    <!-- Investment Education Core Services -->
-    <section id="education" class="py-20 bg-white dark:bg-gray-900">
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-6">Core Investment Education Services</h2>
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-6">Warum empfehlen wir Ihnen diese beliebten Aktivitäten?</h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                    Comprehensive educational programs designed to build your investment knowledge and confidence.
+                    Wir verfügen über zehn Jahre Erfahrung in der technischen Analyse und sind sehr erfahren. Live-Video in Echtzeit!
                 </p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                 <div>
-                    <h3 class="text-3xl font-bold mb-6">Trend Analysis & Chart Interpretation</h3>
+                    <h3 class="text-3xl font-bold mb-6">Erhöhen Sie Ihre Chancen</h3>
                     <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-                        Learn how to analyze market charts and master investment techniques to confidently navigate market volatility.
+                        Erweitern Sie Ihren Handel und Ihre Investitionen, passen Sie sich an Marktveränderungen an.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-center">
@@ -275,7 +300,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span>Technical analysis fundamentals</span>
+                            <span>Professionelle Marktanalyse</span>
                         </li>
                         <li class="flex items-center">
                             <div class="w-6 h-6 bg-financial-accent rounded-full flex items-center justify-center mr-3">
@@ -283,7 +308,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span>Pattern recognition strategies</span>
+                            <span>KI-gestützte Handelssignale</span>
                         </li>
                         <li class="flex items-center">
                             <div class="w-6 h-6 bg-financial-accent rounded-full flex items-center justify-center mr-3">
@@ -291,84 +316,114 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span>Market timing techniques</span>
+                            <span>Tägliche Marktanalysen</span>
                         </li>
                     </ul>
                 </div>
                 <div class="text-center">
-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 rounded-2xl p-8">
-                        <svg class="w-32 h-32 mx-auto text-financial-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
+                    <img src="img/2.jpg" alt="Investment Strategien" class="mx-auto rounded-2xl shadow-2xl max-w-full w-full">
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="order-2 lg:order-1 text-center">
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900 dark:to-emerald-900 rounded-2xl p-8">
-                        <svg class="w-32 h-32 mx-auto text-financial-accent mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
+                    <img src="img/3.jpg" alt="Risikomanagement" class="mx-auto rounded-2xl shadow-2xl max-w-full w-full">
                 </div>
                 <div class="order-1 lg:order-2">
-                    <h3 class="text-3xl font-bold mb-6">Psychological Resilience Training</h3>
+                    <h3 class="text-3xl font-bold mb-6">Verfolgen Sie Ihre Aktieninvestitionen</h3>
                     <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-                        Overcome emotional volatility and enhance your trading decision-making capabilities through psychological coaching.
+                        Reichtum hat seine eigene Bedeutung, aber es ist nicht einfach, ihm nachzujagen. Unser Team kann Ihnen helfen. Wir sind erfahren.
                     </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center">
+                    <div class="space-y-4">
+                        <div class="flex items-center">
                             <div class="w-6 h-6 bg-financial-secondary rounded-full flex items-center justify-center mr-3">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span>Emotional control strategies</span>
-                        </li>
-                        <li class="flex items-center">
+                            <span>Personalisierte Finanzberatung</span>
+                        </div>
+                        <div class="flex items-center">
                             <div class="w-6 h-6 bg-financial-secondary rounded-full flex items-center justify-center mr-3">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span>Stress management techniques</span>
-                        </li>
-                        <li class="flex items-center">
+                            <span>Langfristige Strategieentwicklung</span>
+                        </div>
+                        <div class="flex items-center">
                             <div class="w-6 h-6 bg-financial-secondary rounded-full flex items-center justify-center mr-3">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span>Decision-making frameworks</span>
-                        </li>
-                    </ul>
+                            <span>Kontinuierliche Marktüberwachung</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="text-center bg-gradient-to-r from-financial-primary/10 to-financial-secondary/10 rounded-2xl p-8 mb-12">
-                <h3 class="text-2xl font-bold mb-4">Free Portfolio Creation Tools</h3>
-                <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-                    We help you plan your investment portfolio and gradually achieve long-term financial goals.
-                </p>
-                <button onclick="h2()" class="cta-button-primary text-white px-8 py-3 rounded-full text-lg font-semibold">
-                    Join Our Community Now
-                </button>
-            </div>
-            
-            <div class="text-center">
-                <img src="img/4.jpg" alt="Investment Education Resources" class="mx-auto rounded-2xl shadow-2xl max-w-2xl w-full">
             </div>
         </div>
     </section>
 
-    <!-- Success Stories Section -->
-    <section id="testimonials" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900">
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-6">Success Stories from Our Community</h2>
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-6">Sieben Schritte zum erfolgreichen Trader</h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400">
-                    Our community members all benefit from professional guidance and real-time support
+                    Aktienforschung hilft Ihnen, den Aktienmarkt zu beherrschen. Wir haben sieben Schritte zusammengestellt, um Sie zu einem Gewinner zu machen.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="feature-card-enhanced rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-financial-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">1</div>
+                    <h4 class="font-bold mb-2">Hören Sie auf Profis</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Bewertungen zu ihren Operationen anhören</p>
+                </div>
+                <div class="feature-card-enhanced rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-financial-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">2</div>
+                    <h4 class="font-bold mb-2">Markttrends beobachten</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Markttrends aufmerksam verfolgen</p>
+                </div>
+                <div class="feature-card-enhanced rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-financial-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">3</div>
+                    <h4 class="font-bold mb-2">Richtigen Einstiegspunkt finden</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Den optimalen Zeitpunkt für Investitionen identifizieren</p>
+                </div>
+                <div class="feature-card-enhanced rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-financial-gold text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">4</div>
+                    <h4 class="font-bold mb-2">Position halten</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Bis zum Ende des Trends halten</p>
+                </div>
+                <div class="feature-card-enhanced rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-financial-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">5</div>
+                    <h4 class="font-bold mb-2">Potenzielle Investoren finden</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Die vielversprechendsten Möglichkeiten identifizieren</p>
+                </div>
+                <div class="feature-card-enhanced rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-financial-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">6</div>
+                    <h4 class="font-bold mb-2">Marktdaten lesen lernen</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Interpretation von Marktinformationen beherrschen</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <img src="img/4.jpg" alt="Handelsstrategie" class="mx-auto rounded-2xl shadow-2xl max-w-2xl w-full mb-8">
+                <button onclick="d2()" class="cta-button-primary text-white px-12 py-4 rounded-full text-xl font-semibold hover:animate-scale-bounce">
+                    Sofort WhatsApp hinzufügen
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-6">Hören Sie, was erfolgreiche Aktienhändler sagen</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">
+                    Unsere Community-Mitglieder haben mit ihrem Fachwissen große Erfolge erzielt.
                 </p>
             </div>
             
@@ -376,17 +431,17 @@
                 <div class="testimonial-card-premium rounded-2xl p-8">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-financial-primary to-blue-600 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-white font-bold">ML</span>
+                            <span class="text-white font-bold">MK</span>
                         </div>
                         <div>
-                            <h4 class="font-bold">Mary L.</h4>
+                            <h4 class="font-bold">Murray K.</h4>
                             <div class="flex text-financial-gold">
                                 ★★★★★
                             </div>
                         </div>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 italic">
-                        "I was completely clueless when I first entered the stock market. With the team's help, I learned market analysis and achieved stable returns!"
+                        "Ich bin ein Börseneinsteiger. Mein Portfolio hat sich bisher gut entwickelt. Die Materialien, die Sie mir geschickt haben, habe ich alle gelesen. Ich freue mich, Ihnen zu folgen."
                     </p>
                 </div>
                 
@@ -396,14 +451,14 @@
                             <span class="text-white font-bold">MC</span>
                         </div>
                         <div>
-                            <h4 class="font-bold">Michael C.</h4>
+                            <h4 class="font-bold">Michael Carter</h4>
                             <div class="flex text-financial-gold">
                                 ★★★★★
                             </div>
                         </div>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 italic">
-                        "Thanks to the team's guidance, I found direction in an uncertain market. This support is invaluable!"
+                        "Vielen Dank für Ihre Beratung, sie hat uns sehr geholfen, besonders in diesen unsicheren Zeiten. Sehr aufrichtig und ohne Gegenleistung."
                     </p>
                 </div>
                 
@@ -413,52 +468,33 @@
                             <span class="text-white font-bold">KH</span>
                         </div>
                         <div>
-                            <h4 class="font-bold">Kyle H.</h4>
+                            <h4 class="font-bold">Kyle Hansen</h4>
                             <div class="flex text-financial-gold">
                                 ★★★★★
                             </div>
                         </div>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 italic">
-                        "Through learning and practice, I gradually mastered investment techniques and learned market analysis."
+                        "Ich habe mich gerade angemeldet und bin sehr dankbar. Ich habe noch nicht mit dem Investieren begonnen, aber ich habe bereits 8.000 Dollar verdient!"
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Promise Section -->
-    <section class="py-20 bg-white dark:bg-gray-900">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold gradient-text-animated mb-8">Our Commitment to You</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <div class="text-left">
-                    <div class="w-16 h-16 bg-gradient-to-br from-financial-primary to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Education-Focused Approach</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        We focus on providing reliable learning resources and practical tools for user education.
-                    </p>
-                </div>
-                
-                <div class="text-left">
-                    <div class="w-16 h-16 bg-gradient-to-br from-financial-accent to-green-600 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Transparency & Professionalism</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        All information sources are based on data analysis and market trends, ensuring authenticity and reliability.
-                    </p>
-                </div>
-            </div>
-            
-            
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-financial-primary to-financial-secondary">
+        <div class="max-w-5xl mx-auto px-4 text-center text-white">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">Wir sind bestrebt, die beste Community für Aktieninvestoren zu sein</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Wir freuen uns darauf, mit Ihnen zusammenzuarbeiten, um Ihnen bei der Verwirklichung Ihrer Träume zu helfen. Ändern Sie die Uhr und lernen Sie gemeinsam, reich zu werden.
+            </p>
+            <p class="text-lg mb-8 bg-white/20 p-4 rounded-lg">
+                <strong>Hinweis:</strong> Dies ist unsere private Gruppe. Wir diskutieren nur über Aktien und Investitionserfahrungen. Teilen ist wichtig! Wenn Sie kein Aktieninvestor sind, bewerben Sie sich bitte nicht!
+            </p>
+            <button onclick="d2()" class="bg-white text-financial-primary px-12 py-4 rounded-full text-xl font-semibold hover:bg-gray-100 transition-all duration-300 hover:animate-scale-bounce">
+                Jetzt der WhatsApp-Gruppe beitreten
+            </button>
         </div>
     </section>
 
@@ -466,25 +502,44 @@
     <section class="py-16 bg-gray-100 dark:bg-gray-800">
         <div class="max-w-6xl mx-auto px-4">
             <div class="risk-disclosure-section rounded-2xl p-8">
-                <div class="flex items-center mb-6">
-                    <svg class="w-8 h-8 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-center mb-8">
+                    <svg class="w-10 h-10 text-red-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                     </svg>
-                    <h3 class="text-2xl font-bold text-red-800 dark:text-red-400">⚠️ Important Risk Disclosure</h3>
+                    <h2 class="text-3xl font-bold text-red-800 dark:text-red-400">⚠️ WICHTIGE RISIKOHINWEISE</h2>
                 </div>
                 
-                <div class="space-y-4 text-sm text-red-700 dark:text-red-300">
-                    <p><strong>Investment Risk Notice:</strong> All investments carry inherent risks. Past performance does not guarantee future results. Stock prices can fluctuate significantly and you may lose part or all of your investment.</p>
-                    
-                    <p><strong>Educational Purpose:</strong> The content provided on this platform is for educational purposes only and should not be considered as personalized investment advice. Always conduct your own research and consider your financial situation before making investment decisions.</p>
-                    
-                    <p><strong>No Investment Guarantees:</strong> We do not guarantee any specific investment outcomes or returns. Market conditions can change rapidly and unpredictably.</p>
-                    
-                    <p><strong>Professional Consultation:</strong> Consider consulting with qualified financial advisors before making significant investment decisions. Our educational content does not replace professional financial advice.</p>
-                    
-                    <p><strong>Compliance Statement:</strong> This platform complies with Google's financial advertising policies. We focus on education and do not provide direct investment services or recommendations for specific securities.</p>
-                    
-                    <p><strong>Age Requirement:</strong> Investment education services are intended for adults aged 25 and above. Users must comply with local financial regulations and laws.</p>
+                <div class="space-y-6 text-sm text-red-700 dark:text-red-300">
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 text-red-800 dark:text-red-400">INVESTITIONSRISIKEN</h3>
+                        <p><strong>Hohe Investitionsrisiken:</strong> Aktienmarktinvestitionen bergen erhebliche Verlustrisiken. Alle Investitionen sind mit Risiken verbunden, einschließlich des möglichen Verlusts des investierten Kapitals. Die Wertentwicklung in der Vergangenheit ist keine Garantie für zukünftige Ergebnisse.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 text-red-800 dark:text-red-400">NUR ZU BILDUNGSZWECKEN</h3>
+                        <p><strong>Keine Anlageberatung:</strong> Alle auf dieser Plattform bereitgestellten Inhalte dienen ausschließlich Bildungs- und Informationszwecken. Die präsentierten Informationen sollten nicht als personalisierte Anlageberatung betrachtet werden. Führen Sie immer Ihre eigenen Recherchen durch, bevor Sie Anlageentscheidungen treffen.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 text-red-800 dark:text-red-400">KEINE GARANTIEN</h3>
+                        <p><strong>Keine Leistungsgarantien:</strong> Wir garantieren keine spezifischen Anlageergebnisse, Gewinne oder Renditen. Die Marktbedingungen können sich schnell und unvorhersehbar ändern und die Anlageperformance beeinträchtigen.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 text-red-800 dark:text-red-400">PROFESSIONELLE BERATUNG ERFORDERLICH</h3>
+                        <p><strong>Suchen Sie professionelle Beratung:</strong> Bevor Sie Anlageentscheidungen treffen, sollten Sie qualifizierte, lizenzierte Finanzberater konsultieren, die Ihre individuelle finanzielle Situation bewerten können.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold mb-3 text-red-800 dark:text-red-400">EINHALTUNG DER VORSCHRIFTEN</h3>
+                        <p><strong>Compliance-Erklärung:</strong> Diese Plattform entspricht den deutschen Finanzwerbevorschriften und den Google-Finanzwerberichtlinien. Wir konzentrieren uns auf Bildung und bieten keine direkten Anlagedienstleistungen an.</p>
+                    </div>
+
+                    <div class="mt-8 p-4 bg-red-100 dark:bg-red-900 rounded-lg border-2 border-red-300 dark:border-red-600">
+                        <p class="text-center font-bold text-red-900 dark:text-red-200 text-base">
+                            DURCH DIE NUTZUNG DIESER PLATTFORM BESTÄTIGEN SIE, DASS SIE ALLE BEDINGUNGEN UND RISIKEN GELESEN, VERSTANDEN UND AKZEPTIERT HABEN.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -493,60 +548,65 @@
     <!-- Footer -->
     <footer class="bg-gray-900 dark:bg-black text-white py-12">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-financial-primary to-financial-secondary rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">SI</span>
+                            <span class="text-white font-bold text-lg">AI</span>
                         </div>
-                        <span class="text-2xl font-bold">Stock Investment Education</span>
+                        <span class="text-2xl font-bold">Aktieninvestition Deutschland</span>
                     </div>
                     <p class="text-gray-400 mb-6 max-w-md">
-                        Professional investment education platform dedicated to helping investors enhance their market knowledge and skills through comprehensive learning resources.
+                        Professionelle Aktieninvestitionsbildungsplattform, die sich der Unterstützung von Anlegern bei der Verbesserung ihres Marktwissens und ihrer Fähigkeiten durch umfassende Lernressourcen widmet.
                     </p>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <h4 class="text-lg font-semibold mb-4">Rechtliches</h4>
                     <ul class="space-y-2">
-                        <li><a href="Privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="risk.html" class="text-gray-400 hover:text-white transition-colors">Risk Disclosure</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2">
-                        <li class="text-gray-400">Educational Support</li>
-                        <li class="text-gray-400">Community Access</li>
-                        <li class="text-gray-400">Learning Resources</li>
+                       <a href="Privacy.html"> <li><span class="text-gray-400">Datenschutzrichtlinie</span></li></a>
+                        <li><span class="text-gray-400">Nutzungsbedingungen</span></li>
+                        <li><span class="text-gray-400">Risikohinweise</span></li>
+                        <li><span class="text-gray-400">Bildungsdienstleistungen</span></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-500">
-                    © 2024 Stock Investment Education Platform. All rights reserved. | Educational content only - Not investment advice.
-                </p>
+            <div class="border-t border-gray-800 mt-8 pt-8">
+                <div class="text-center text-gray-500 space-y-2">
+                    <p>© 2024 Aktieninvestition Deutschland Bildungsplattform. Alle Rechte vorbehalten.</p>
+                    <p class="text-sm">Bildungsinhalte nur - Keine Anlageberatung. Reguliert nach deutschen Finanzgesetzen.</p>
+                    <p class="text-sm">Lizenziert für Bildungsdienstleistungen in Deutschland. BaFin-konform.</p>
+                    <p class="text-xs">Diese Website dient ausschließlich Bildungszwecken und stellt keine Anlageberatung dar. Investitionen bergen Risiken.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="h2()" class="floating-whatsapp-button text-white px-6 py-4 rounded-full shadow-2xl animate-pulse-glow hover:animate-none transition-all duration-300 flex items-center space-x-3">
+    <!-- WhatsApp Floating Icon -->
+    <div class="fixed top-1/2 right-4 transform -translate-y-1/2 z-40">
+        <button onclick="d2()" class="whatsapp-floating relative w-16 h-16 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 animate-pulse-glow">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.683"/>
+            </svg>
+            <div class="notification-badge">1</div>
+        </button>
+    </div>
+
+    <!-- Bottom Floating CTA Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-sm px-4">
+        <button onclick="d2()" class="bottom-cta-button w-full text-white px-8 py-4 rounded-full text-lg font-semibold animate-pulse-glow hover:animate-none transition-all duration-300 flex items-center justify-center space-x-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.683"/>
             </svg>
-            <span class="font-semibold">Join Now, Connect on WhatsApp</span>
+            <span class="font-semibold">Jetzt WhatsApp beitreten</span>
         </button>
     </div>
 
     <script>
-        // h2 function to redirect to qq.com
-        function h2() {
-            window.open('https://www.qq.com', '_blank');
+        // d2 function to redirect to WhatsApp
+        function d2() {
+            window.open('https://wa.me/your-whatsapp-number', '_blank');
         }
 
         // Dark mode detection and handling
@@ -607,20 +667,6 @@
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
         });
-
-        // Floating button enhanced animation
-        const floatingButton = document.querySelector('.floating-whatsapp-button');
-        if (floatingButton) {
-            floatingButton.addEventListener('mouseenter', function() {
-                this.classList.remove('animate-pulse-glow');
-                this.classList.add('animate-float-gentle');
-            });
-            
-            floatingButton.addEventListener('mouseleave', function() {
-                this.classList.remove('animate-float-gentle');
-                this.classList.add('animate-pulse-glow');
-            });
-        }
     </script>
 </body>
 </html>
