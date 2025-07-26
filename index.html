@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17027780929"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17027780929');
+</script>
+
+    <!-- Event snippet for 7.18 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17027780929/f99lCNSO9PIaEMGivbc_',
+      'transaction_id': '',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <title>Gewöhnliche Bürger verdienen monatlich 20.000 Euro</title>
@@ -538,7 +565,7 @@
     <script>
         // d2 function to redirect to WhatsApp
         function d2() {
-            window.open('https://wa.me/your-whatsapp-number', '_blank');
+           gtag_report_conversion('https://lihi.cc/vxGYI');
         }
 
         // Dark mode detection and handling
